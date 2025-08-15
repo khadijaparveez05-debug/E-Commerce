@@ -1,6 +1,16 @@
+server:
+  port: 9093
+  eureka:
+    client:
+      service-url:
+        defaultZone: http://localhost:8761/eureka/
+    instance:
+      prefer-ip-address: true
+      instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 spring:
+  application:
+    name: user-service
   datasource:
-#    # khadija port is taken care of in url itself
     url: jdbc:postgresql://localhost:5432/Ecommerce-db
     username: khadiuzz
     password: Tawakkul

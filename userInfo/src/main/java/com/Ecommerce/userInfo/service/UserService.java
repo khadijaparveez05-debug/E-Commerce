@@ -2,6 +2,8 @@ package com.Ecommerce.userInfo.service;
 
 import com.Ecommerce.userInfo.Repository.UserRepository;
 import com.Ecommerce.userInfo.dto.UserDTO;
+import com.Ecommerce.userInfo.entity.User;
+import com.Ecommerce.userInfo.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,7 @@ public class UserService {
     UserRepository userRepository;
 
     public UserDTO addUser(UserDTO userDTO) {
-        return new UserDTO(25, "John Doe", "something", "205", "Bengaluru");
+        User savedUser = userRepository.save(UserMapper.INSTANCE.mapUserDTOToUser(userDTO));
+        return UserMapper.INSTANCE.mapUserToUserDTO(savedUser);
     }
 }

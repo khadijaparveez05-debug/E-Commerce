@@ -3,6 +3,7 @@ package com.Ecommerce.userInfo.Controller;
 import com.Ecommerce.userInfo.service.UserService;
 import com.Ecommerce.userInfo.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,7 +18,7 @@ public class UserController {
 
     @PostMapping("/addUser")
     public ResponseEntity<UserDTO> addUser(@RequestBody UserDTO userDTO) {
-        UserDTO createdUser = userService.addUser(userDTO);
-        return ResponseEntity.ok(createdUser);
+        UserDTO savedUser = userService.addUser(userDTO);
+        return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
 }
