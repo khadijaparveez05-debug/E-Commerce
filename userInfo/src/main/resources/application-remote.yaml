@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://ep-square-cherry-a1vekw4s-pooler.ap-southeast-1.aws.neon.tech:5432/Ecommerce?sslmode=require&channelBinding=require
+    username: neondb_owner
+    password: npg_bYMh3DH9qIZE
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false

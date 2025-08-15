@@ -1,0 +1,11 @@
+spring:
+  datasource:
+#    # khadija port is taken care of in url itself
+    url: jdbc:postgresql://localhost:5432/Ecommerce-db
+    username: khadiuzz
+    password: Tawakkul
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
